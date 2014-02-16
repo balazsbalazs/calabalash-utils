@@ -33,3 +33,7 @@ Then(/^I can't find "([^"]*)" in the list$/) do |item|
     fail("Element #{item} was found in the list")
   end
 end
+
+And(/^I scroll to the bottom$/) do
+  scroll_to_bottom
+end

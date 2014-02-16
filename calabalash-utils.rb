@@ -26,12 +26,27 @@ end
 
 # Scrolls a scrollable view to the top of the view.
 def scroll_to_top
-  result = query('*')
+  scroll_to_top_or_bottom(:up)
+end
+
+
+# Scrolls a scrollable view to the bottom of the view.
+def scroll_to_bottom
+  scroll_to_top_or_bottom(:down)
+end
+
+
+def scroll_to_top_or_bottom(direction)
+  current_screen_state = query('*')
 
   begin
-    last_result = result
-    performAction('scroll_up')
-    result = query('*')
-  end while (result != last_result)
-
+    prev_screen_state = current_screen_state
+    case direction
+      when :up
+        performAction('scroll_up')
+      when :down
+        performAction('scroll_down')
+    end
+    current_screen_state = query('*')
+  end while (current_screen_state != prev_screen_state)
 end

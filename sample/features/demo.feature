@@ -23,3 +23,10 @@ Feature: Demonstrating the features of calabalash-utils
     And I scroll to the top
     Then "Animation" is on the screen
 
+  Scenario: Scroll the list to bottom
+    Given I run the apiDemos app
+    And "Accessibility" is on the screen
+    When I select "Views" in the list
+    And "Animation" is on the screen
+    And I scroll to the bottom
+    Then "WebView" is on the screen
