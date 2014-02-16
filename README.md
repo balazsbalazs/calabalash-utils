@@ -11,10 +11,7 @@ Calabalash-utils is a collection of utility methods for calabash-android. It has
   - scroll to the top or bottom of a list
 
 
-
-
 Version
--
 
 1.0
 </br>
@@ -52,7 +49,7 @@ cd calabalash-utils/sample
 License
 -
 
-MIT
+[MIT]
 
 *Free Software, Fuck Yeah!*
 
@@ -61,3 +58,4 @@ MIT
   [article-1]: http://dontbelievenintdd.wordpress.com/2014/01/24/calabash-tips-scroll-a-list-until-you-find-a-specific-element-on-android/
   [internal-1]: https://github.com/balazsbalazs/calabalash-utils/blob/master/sample/features/demo.feature
   [internal-2]: https://github.com/balazsbalazs/calabalash-utils/blob/master/sample/features/step_definitions/demo_steps.rb
+  [MIT]: http://opensource.org/licenses/MIT
