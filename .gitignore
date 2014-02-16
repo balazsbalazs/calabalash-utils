@@ -18,3 +18,5 @@ tmp
 _yardoc
 doc/
 sample/test_servers/
+screenshot*.png
+
