@@ -20,3 +20,6 @@ doc/
 sample/test_servers/
 screenshot*.png
 
+bin
+gen
+.irb-history
