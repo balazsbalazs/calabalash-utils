@@ -111,7 +111,6 @@ calabash-android run AndroidBackdoorSample.apk features/backdoor.feature
 Look at the sample code:
   * calabash sample: [backdoor.feature], [backdoor_steps.rb]
   * [Android sample]
-  *
 
 [androidbackdoor.jar]: https://github.com/balazsbalazs/calabalash-utils/blob/master/documentation/androidbackdoor.jar
 
