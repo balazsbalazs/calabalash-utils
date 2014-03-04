@@ -50,3 +50,26 @@ def scroll_to_top_or_bottom(direction)
     current_screen_state = query('*')
   end while (current_screen_state != prev_screen_state)
 end
+
+
+def send_broadcast(action, *params)
+  shell_cmd = default_device.adb_command
+  cmd = "#{shell_cmd} shell am broadcast -a #{action}"
+  params.each { |param|
+    cmd << " #{param[:switch]} #{param[:name]} #{param[:param]}"
+  }
+  system cmd
+end
+
+def int_param(name, param)
+  {switch: '--ei', name: "#{name}", param: param}
+end
+
+def bool_param(name, param)
+  {switch: '--ez', name: "#{name}", param: param}
+end
+
+def string_param(name, param)
+  {switch: '--es', name: "#{name}", param: param}
+end
+
