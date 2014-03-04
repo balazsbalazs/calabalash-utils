@@ -1,7 +1,6 @@
 android-backdoor
 ================
 
-<br>
 android-backdoor provides a way to access backdoor code from the command line. The idea is that you can send debug commands from your command line withouth having to touch anything in your app.
 
 <br>
@@ -15,7 +14,6 @@ Examples:
 
 A blog post about the android-backdoor can be found [here][article-2].
 
-<br>
 Usage
 -----------
 #### Add library
@@ -57,7 +55,6 @@ Backdoor.addDebugAction(new LoginAction());
 adb shell am broadcast -a com.krazyrobot.sample.login
 ```
 
-<br>
 Passing parameters
 -----------
 You can pass any number of string, int or boolean parametrs.
@@ -82,7 +79,7 @@ public void onActionReceived(Intent intent) {
     boolean shouldLoginArgument = intent.getBooleanExtra("should_login", false);
     ...
 ```
-<br>
+
 Calling backdoor from Calabash
 -----------
 Import [calabalash-utils.rb] into one of your step-definition files.
@@ -99,7 +96,7 @@ For setting arguments you can call the `int_param`, `bool_param`, `string_param`
 ```ruby
 send_broadcast('com.krazyrobot.sample.login', string_param('username', 'balazs'), int_param('number', 3), bool_param('should_login', true))
 ```
-<br>
+
 Sample code
 ----------------
 Check out the code and go into the sample directory `sample`.
@@ -112,9 +109,9 @@ Look at the sample code:
   * calabash sample: [backdoor.feature], [backdoor_steps.rb]
   * [Android sample]
 
-[androidbackdoor.jar]: https://github.com/balazsbalazs/calabalash-utils/blob/master/documentation/androidbackdoor.jar
+[androidbackdoor.jar]: https://github.com/balazsbalazs/calabalash-utils/releases/download/android-backdoor-1.0/androidbackdoor.jar
 
-[calabalash-utils.rb]: https://github.com/balazsbalazs/calabalash-utils/blob/master/documentation/calabalash-utils.rb
+[calabalash-utils.rb]: https://github.com/balazsbalazs/calabalash-utils/blob/master/calabalash-utils.rb
 
 [backdoor.feature]: https://github.com/balazsbalazs/calabalash-utils/blob/master/sample/features/backdoor.feature
 
