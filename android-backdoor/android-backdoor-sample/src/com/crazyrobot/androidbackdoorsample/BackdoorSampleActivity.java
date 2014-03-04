@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
 
+import com.krazyrobot.backdoor.Backdoor;
 import com.krazyrobot.backdoor.BackdoorAction;
 
 public class BackdoorSampleActivity extends Activity {
@@ -21,7 +22,7 @@ public class BackdoorSampleActivity extends Activity {
 		mEmailEditText = (EditText) findViewById(R.id.email_edittext);
 		mPwdEditText = (EditText) findViewById(R.id.pwd_edittext);
 
-		((SampleApplication) getApplication()).getBackdoor().addDebugAction(new LoginAction());
+		Backdoor.addDebugAction(new LoginAction());
 	}
 
 	/**

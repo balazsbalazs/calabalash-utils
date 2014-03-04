@@ -23,11 +23,15 @@ import android.util.Log;
 public class Backdoor {
 	private final static String TAG = Backdoor.class.getSimpleName();
 
-	private Context mContext;
-	private String mPrefix;
+	private static Context sContext;
+	private static String sPrefix;
 
 	private static Map<String, BackdoorAction> mDebugActions = new HashMap<String, BackdoorAction>();
 
+	public static void init(Context context) {
+		init(context, "");
+	}
+	
 	/**
 	 * Initialize your DeubgInterfac with a prefix. To avoid namespace collision
 	 * all the actions will use the given prefix
@@ -35,9 +39,9 @@ public class Backdoor {
 	 * @param context
 	 * @param prefix
 	 */
-	public Backdoor(Context context, String prefix) {
-		mContext = context;
-		mPrefix = prefix;
+	public static void init(Context context, String prefix) {
+		sContext = context;
+		sPrefix = prefix;
 	}
 
 	/**
@@ -45,28 +49,28 @@ public class Backdoor {
 	 * 
 	 * @param action
 	 */
-	public void addDebugAction(BackdoorAction action) {
-		String fullAcitionName = mPrefix + "." + action.getName();
+	public static void addDebugAction(BackdoorAction action) {
+		String fullAcitionName = sPrefix + "." + action.getName();
 		mDebugActions.put(fullAcitionName, action);
 		Log.d(TAG, String.format("Add debug action: %s", fullAcitionName));
 		registerDebugActions();
 	}
 
-	public void removeDebugAction(String actionName) {
-		String completeAction = mPrefix + "." + actionName;
+	public static void removeDebugAction(String actionName) {
+		String completeAction = sPrefix + "." + actionName;
 		mDebugActions.remove(completeAction);
 		registerDebugActions();
 	}
 
-	private void registerDebugActions() {
+	private static void registerDebugActions() {
 		IntentFilter filter = new IntentFilter();
 		for (String currentAction : mDebugActions.keySet()) {
 			filter.addAction(currentAction);
 		}
-		mContext.registerReceiver(mReceiver, filter);
+		sContext.registerReceiver(mReceiver, filter);
 	}
 
-	private BroadcastReceiver mReceiver = new BroadcastReceiver() {
+	private static BroadcastReceiver mReceiver = new BroadcastReceiver() {
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			String actionName = intent.getAction();
