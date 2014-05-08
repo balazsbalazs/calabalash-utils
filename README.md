@@ -7,7 +7,7 @@ Essential utilities for [calabash-android].
 <br>
 Calabalash-utils is a collection of utility methods for calabash-android. It has support for the following things:
 
-  - find and touch an element in a list (even if the element is not on screen) [(demo)][article-1]
+  - find and touch an element in a list (even if the element is not on screen)
   - scroll to the top or bottom of a list
   - android-backdoor: provides a way to build backdoor functionality into your app and call it from a command line or Calabash ([details][internal-3], [blog-post][article-2])
 
@@ -56,8 +56,7 @@ License
 MIT
 
   [calabash-android]: https://github.com/calabash/calabash-android
-  [1]: http://dontbelievenintdd.wordpress.com/
-  [article-1]: http://dontbelievenintdd.wordpress.com/2014/01/24/calabash-tips-scroll-a-list-until-you-find-a-specific-element-on-android/
+  [1]: http://krazyrobot.com
   [article-2]: http://krazyrobot.com/2014/03/calabash-android-backdoor
   [internal-1]: https://github.com/balazsbalazs/calabalash-utils/blob/master/sample/features/demo.feature
   [internal-2]: https://github.com/balazsbalazs/calabalash-utils/blob/master/sample/features/step_definitions/demo_steps.rb
